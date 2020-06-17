@@ -1,14 +1,7 @@
 <!-- templates/main/index.html -->
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% extends "base.html" %}
 
-    <title>Chat Rooms</title>
-</head>
-<body>
+{% block content %}
     <div class="container">
         <h3 class="center">What chat room would you like to enter?</h3>
         <input id="room-name-input" type="text" size="100">
@@ -27,5 +20,5 @@
             window.location.pathname = '/chat/' + roomName + '/';
         };
     </script>
-</body>
-</html>
+
+{% endblock content %}
