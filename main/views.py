@@ -60,5 +60,6 @@ def index(request):
 def room(request , room_name):
     return render(request , 'main/room.html' , {
         'room_name' : mark_safe(json.dumps(room_name)),
+        'logged_in_user' : request.user.username.capitalize(),
         'username' : mark_safe(json.dumps(request.user.username)),
     })

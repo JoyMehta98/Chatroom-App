@@ -37,11 +37,11 @@
 		<div class="content container">
 			<div class="contact-profile">
 				<!-- <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" /> -->
-				<p class="center">{{ username }}</p>
+				<b><p class="center">{{ logged_in_user }}</p></b>
 			</div>
 
 			<div class="grid-container">
-				<div class="messages">
+				<div class="messages container">
 					<ul class="append">
 						
 					</ul>
@@ -121,7 +121,8 @@
 		var pTagName = document.createElement('p');
 		var pTag = document.createElement('p');
 		pTag.textContent = data.content;
-		pTagName.style = "margin-left: 10px; margin-right: 10px";
+		pTag.style = "margin-top: -15px";
+		pTagName.style = "margin-left: 10px; margin-right: 10px; font-weight: bold";
 		
 		if(author == username) {
 			msgListTag.className = "sent";
