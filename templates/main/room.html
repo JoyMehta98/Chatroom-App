@@ -24,7 +24,7 @@
             <ul id="nav-mobile" class="right">
                 <li> <a href=""> Home </a> </li>
                 {% if user.is_authenticated %}
-                    <li> <a href="../logout"> Log Out </a></li>
+                    <li> <a href="logout"> Log Out </a></li>
                 {% else %}
                     <li> <a href="login"> Log In </a></li>
                     <li> <a href="signup"> Sign Up </a></li>
@@ -62,14 +62,14 @@
 <script src="{% static 'reconnecting-websocket.js' %}"></script>
 <script>
 
-	var roomName = {{ room_name }};
+	//var roomName = {{ room_name }};
 	var username = {{ username }};
 
 	var chatSocket = new ReconnectingWebSocket(
             'ws://'
             + window.location.host
             + '/ws/chat/'
-            + roomName
+            + 'roomName'
             + '/'
         );
 

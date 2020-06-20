@@ -16,7 +16,7 @@ import json
 
 def SignUp(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('room')
     else:
         form = CreateUserForm()
         if request.method == 'POST':
@@ -31,7 +31,7 @@ def SignUp(request):
 
 def Login(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('room')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -41,7 +41,7 @@ def Login(request):
             
             if user is not None:
                 login(request, user)
-                return redirect('index')
+                return redirect('room')
             else:
                 messages.info(request, 'Username OR password is incorrect')
         
@@ -52,14 +52,14 @@ def Logout(request):
     logout(request)
     return redirect('login')
 
-@login_required(login_url='login')
-def index(request):
-    return render(request , 'main/index.html')
+# @login_required(login_url='login')
+# def index(request):
+#     return render(request , 'main/index.html')
 
 @login_required(login_url='login')
-def room(request , room_name):
+def room(request):
     return render(request , 'main/room.html' , {
-        'room_name' : mark_safe(json.dumps(room_name)),
+        # 'room_name' : mark_safe(json.dumps(room_name)),
         'logged_in_user' : request.user.username.capitalize(),
         'username' : mark_safe(json.dumps(request.user.username)),
     })
