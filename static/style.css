@@ -1,10 +1,54 @@
 .grid-container {
     display: grid;
-    border: 1px solid orange;
-    background-color:  rgba(239, 241, 207, 0.26);
-    overflow-y: hidden;
+    border: 2px solid orange;
+    background-color:  rgba(236, 140, 60, 0.26);
+    height: 500px;
+    overflow: scroll;
 }
 
-li.sent {
-    text-align: right;
+h5 {
+    font-weight: bold;
+}
+
+p.sender-name { 
+    font-weight: bold;
+    margin-left: 60%;
+}
+
+p.replier-name {
+    margin-left: -30px;
+    font-weight: bold;
+}
+
+p.sent-text {
+    margin-right: -30px;
+    margin-left: 60%;
+    background-color: rgb(30, 119, 30);
+    color: white; 
+}
+
+p.replies-text {
+    margin-left: -30px;
+    background-color: rgb(88, 86, 86);
+    color: white;
+    margin-right: 60%;
+}
+
+p.sent-text , p.replies-text {
+    word-break: break-word;
+    margin-top: -15px;
+    border: 2px solid black;
+    padding: 4px 8px 4px 6px ;
+    border-radius: 8%;
+    width: fit-content;
+}
+
+#chat-message-input {
+    text-align: center;
+}
+
+.chat-message-input {
+    width: 400px;
+    margin-left: 31%;
+    text-align: center;
 }

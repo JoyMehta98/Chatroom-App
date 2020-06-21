@@ -8,6 +8,7 @@
 <meta name="robots" content="noindex">
 <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <script src="https://use.typekit.net/hoy3lrg.js"></script>
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -36,14 +37,13 @@
 	<div id="frame">
 		<div class="content container">
 			<div class="contact-profile">
-				<!-- <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" /> -->
-				<b><p class="center">{{ logged_in_user }}</p></b>
+				<h5 class="center">{{ logged_in_user }}</h5>
 			</div>
 
 			<div class="grid-container">
 				<div class="messages container">
 					<ul class="append">
-						
+
 					</ul>
 				</div>
 			</div>
@@ -51,14 +51,12 @@
 				<div class="chat-message-input">
 					<div class="wrap">
 						<input id="chat-message-input" type="text" placeholder="Write your message..." />
-						<!-- <i class="fa fa-paperclip attachment" aria-hidden="true"></i> -->
 						<button id="chat-message-submit" class="btn btn-small waves-effect waves-light">Submit</button>
 					</div>
 				</div>
 		</div>
 	</div>
 
-<script src="{% static 'main.js' %}"></script>
 <script src="{% static 'reconnecting-websocket.js' %}"></script>
 <script>
 
@@ -121,16 +119,18 @@
 		var pTagName = document.createElement('p');
 		var pTag = document.createElement('p');
 		pTag.textContent = data.content;
-		pTag.style = "margin-top: -15px";
-		pTagName.style = "margin-left: 10px; margin-right: 10px; font-weight: bold";
 		
 		if(author == username) {
 			msgListTag.className = "sent";
-			pTagName.textContent = "You";
+			pTagName.textContent = "YOU";
+			pTag.className ="sent-text";
+			pTagName.className = "sender-name";
 		}
 		else {
 			msgListTag.className = "replies";
-			pTagName.textContent = author;
+			pTagName.textContent = author.toUpperCase();
+			pTag.className = "replies-text";
+			pTagName.className = "replier-name";
 		}
 		
 		msgListTag.appendChild(pTagName);

@@ -11,7 +11,7 @@ class ChatConsumer(WebsocketConsumer):
 
     def fetch_messages(self , data):
         print("Fetch")
-        messages = Message.last_10_messages()
+        messages = Message.load_messages()
         # print(messages)
         # print(list(messages))
         content = {
