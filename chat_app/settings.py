@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +26,7 @@ SECRET_KEY = 'pam$p6nybvh_8sr3u_(hp$y%_zzy@shm#%sa1t6^ei*(v*w5$8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [' https://chatroomapp-django.herokuapp.com/' , '127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -94,8 +94,8 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-DATABASES['default'] = dj_database_url.config(conn_max_age=600 , ssl_require=True)
+# import dj_database_url
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600 , ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -138,4 +138,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR , 'static')
 ]
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
